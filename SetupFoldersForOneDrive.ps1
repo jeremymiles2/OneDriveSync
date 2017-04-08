@@ -142,7 +142,7 @@ public extern static int SHSetKnownFolderPath(ref Guid folderId, uint flags, Int
 
 }
 
-$ONEDRIVESYNC = "$env:USERPROFILE\OneDrive - Example, Inc"
+$ONEDRIVESYNC = "$env:USERPROFILE\OneDrive - EXAMPLE COMPANY"
 
 # Root Folders
 Set-KnownFolderPath -KnownFolder 'Desktop' -Path "$ONEDRIVESYNC\Desktop"
@@ -159,15 +159,14 @@ Set-KnownFolderPath -KnownFolder 'Saved Games' -Path "$ONEDRIVESYNC\Work Sync\Sa
 Set-KnownFolderPath -KnownFolder 'Searches' -Path "$ONEDRIVESYNC\Work Sync\Searches"
 Set-KnownFolderPath -KnownFolder 'Start Menu' -Path "$ONEDRIVESYNC\Work Sync\Start Menu"
 Set-KnownFolderPath -KnownFolder 'Videos' -Path "$ONEDRIVESYNC\Work Sync\Videos"
-Set-KnownFolderPath -KnownFolder 'AppData (Roaming)' -Path "$ONEDRIVESYNC\Work Sync\AppData"
+# Set-KnownFolderPath -KnownFolder 'AppData (Roaming)' -Path "$ONEDRIVESYNC\Work Sync\AppData"
 
 
+Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\OneDrive -Name EnableADAL -PropertyType DWORD -Value 1
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\OneDrive -Name EnableAllOcsiClients -PropertyType DWORD -Value 1
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\OneDrive -Name DisablePersonalSync -PropertyType DWORD -Value 1 
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\OneDrive -Name DefaultToBusinessFRE -PropertyType DWORD -Value 1
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\OneDrive\Tenants\TENAND-ID-GOES-HERE -Name DisableCustomRoot -PropertyType DWORD -Value 1
-
-
 
 
 start odopen://sync?useremail=$env:USERNAME@example.com
