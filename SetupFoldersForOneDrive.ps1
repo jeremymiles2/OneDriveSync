@@ -170,3 +170,7 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\OneDrive\Tenants\TENAND-ID-GOES-
 
 
 start odopen://sync?useremail=$env:USERNAME@example.com
+
+
+df
+fdfdfvadfvfavsfdgfagtsb
